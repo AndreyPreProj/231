@@ -15,7 +15,10 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.jta.JtaTransactionManager;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
+import javax.swing.text.html.parser.Entity;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -58,6 +61,7 @@ public class DataConfig {
         return manager;
     }
 
+    @Bean
     public Properties getHibernateProperties() {
         Properties properties = new Properties();
         InputStream is = getClass().getClassLoader().getResourceAsStream("hibernate.properties");
